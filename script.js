@@ -67,8 +67,13 @@ function renderCalendar (date) {
         }
         row.appendChild(cell)
         dateCount++
-        var dateNext = new Date(year, month, dateCount)
-        if (dateNext.getMonth() > month) {
+        var dateNext = new Date(year, month, dateCount+1)
+        var monthUnik = dateNext.getMonth()
+        if (monthUnik === 0) {
+          monthUnik = 12
+        }
+        console.log('unik', dateNext.getMonth() , month)
+        if (monthUnik > month) {
           stop = true
         }
       }
