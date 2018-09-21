@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calendar</title>
+</head>
+<style>
+  body {
+    display: inline-grid;
+  }
+  .container {
+    display: inline-flex;
+    margin-bottom: 20px;
+    flex-direction: column
+  }
+  .cell {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc
+  }
+  .input {
+    display: inline-flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .row {
+    display: flex
+  }
+  .cell.header {
+    border: 2px solid white;
+    text-align: center;
+    align-items: center
+  }
+</style>
+<body>
+  <div class="input">
+  <select name="month" id='month'>
+
+  </select>
+  <input id='year' />
+  <button onclick="onSelectMonth()" >Submit</button>
+  </div>
+  <section class="container" id="container">
+    
+  </section>
+</body>
+<script src="script.js"></script>
+</html>
