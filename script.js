@@ -69,10 +69,10 @@ function renderCalendar (date) {
         dateCount++
         var dateNext = new Date(year, month, dateCount+1)
         var monthUnik = dateNext.getMonth()
-        if (monthUnik === 0) {
+        if (monthUnik === 0 && month === 11) {
           monthUnik = 12
         }
-        console.log('unik', dateNext.getMonth() , month)
+        console.log('unik', monthUnik , month)
         if (monthUnik > month) {
           stop = true
         }
