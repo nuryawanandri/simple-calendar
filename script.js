@@ -26,6 +26,7 @@ month.map((month) => {
 })
 
 var dateNow = new Date()
+titleElem.textContent = `${month[dateNow.getMonth()].text} ${dateNow.getFullYear()}`
 renderCalendar(new Date(dateNow.getFullYear(), dateNow.getMonth()))
 
 function renderCalendar (date) {
@@ -94,5 +95,7 @@ function onSelectMonth() {
   var yearValue = yearElem.value
 
   dateSelect = new Date(yearValue, monthValue)
+
+  titleElem.textContent = `${month[monthValue].text} ${yearValue  }`
   renderCalendar(dateSelect)
 }
