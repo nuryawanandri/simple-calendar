@@ -1,6 +1,7 @@
 var monthElem = document.getElementById('month')
 var yearElem = document.getElementById('year')
 var containerElem = document.getElementById('container')
+var titleElem = document.getElementById('title')
 
 var dateSelect = null
 
@@ -32,9 +33,16 @@ function renderCalendar (date) {
   var days = date.getDay()
   var month = date.getMonth()
   var year = date.getFullYear()
+  var rowCalendar = 6
+  var stop = false
+
+  if (days === 0) {
+    days = 7
+    rowCalendar = 7
+  }
   var dateCount = 2 - days
-  console.log('month : ', month, year, days, date)
-  for (var i = 0; i < 6; i++) {
+  console.log('month : ', month, year, days, date, row)
+  for (var i = 0; i < 7;) {
     var row = document.createElement('div')
     row.setAttribute('class', 'row')
     for (var j = 1; j <= 7; j++) {
@@ -53,11 +61,24 @@ function renderCalendar (date) {
         console.log('print : ', datePrint, dateCount, datePrint.getDay())
         cell.setAttribute('class', 'cell')
         cell.textContent = datePrint.getDate()
+        if (datePrint.getMonth() !== month) {
+          cell.className += ' gray'
+        }
         row.appendChild(cell)
         dateCount++
+        var dateNext = new Date(year, month, dateCount)
+        if (dateNext.getMonth() > month) {
+          stop = true
+        }
       }
     }
     containerElem.appendChild(row)
+    if (stop == true) {
+      i = 7
+    } else {
+      i++;
+    }
+    
   }
 }
 
